@@ -1,5 +1,6 @@
 package ch.zhaw.springboot.demo;
 
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,6 +25,16 @@ public class PersonController {
         this.persons.put(2, new Person(2, "Donald Trump"));
         this.persons.put(3, new Person(3, "Joe Biden"));
         System.out.println("Init Data");
+    }
+
+    @GetMapping("/test")
+    public String test() {
+        return "Hello World app is up and running!";
+    }
+
+    @GetMapping("/person")
+    public Collection<Person> getAllPersons() {
+        return this.persons.values();
     }
 
     @GetMapping("/person/{id}")
